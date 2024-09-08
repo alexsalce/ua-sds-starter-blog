@@ -12,6 +12,10 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
+// loading component imports (sds_custom)
+import { Suspense } from 'react'
+import Loading from './loading'
+
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
@@ -100,7 +104,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
-              <main className="mb-auto">{children}</main>
+              <Suspense fallback={<Loading />}>
+                <main className="mb-auto">{children}</main>
+              </Suspense>
             </SearchProvider>
             <Footer />
           </SectionContainer>
