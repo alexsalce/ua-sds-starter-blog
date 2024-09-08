@@ -5,6 +5,8 @@ const headerNavLinks = [
   // { href: '/tags', title: 'Tags' },
   { href: '/projects', title: 'Projects' },
   { href: '/about', title: 'About' },
+  // customizable CV, see ./data/resume/default.mdx (sds_custom)
+  { href: '/resume', title: 'CV' },
 ]
 
 export default headerNavLinks
