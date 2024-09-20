@@ -30,7 +30,7 @@ Through plenty of trial and error, I was able to eventually transform the templa
 
 This is, of course, just an example of how your site could look. Using this framework is great because it is very customizable!
 
-> ![🚨ADDITIONAL DISCLAIMER🚨]
+> 🚨**ADDITIONAL DISCLAIMER**🚨
 > I am not an expert in any of this! Nor have I had any really formal training in web development. This process is only based on my personal trial an error self-taught experience, and there may be better ways to do some of these things. What I _can_ say for sure is that this gets the job done, but if you see any better ways to do any of this, please do so _and_ it would be of great help to me and anyone else using this to get YOUR feedback! So please feel free to interject and provide any suggestions/comments/concerns!
 
 # Setting up the site
