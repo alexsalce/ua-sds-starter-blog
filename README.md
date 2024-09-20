@@ -19,7 +19,7 @@ There are a bunch of templates available out there, but for the purposes we are 
 I recommend going through the `README` on this repo to get a detailed overview and lots of other cool examples.
 This template utilizes the [Next.js](https://nextjs.org/) framework created by [Vercel](https://vercel.com/) that is built from the [React](https://react.dev/) framework.
 
-> ![FAIR WARNING]
+> ⚡**FAIR WARNING**⚡
 > You're going to have to learn some full-stack web dev! I promise it's not bad though!
 
 I do recommend taking some time to better understand [the framework](https://www.youtube.com/watch?v=Sklc_fQBmcs), it's cool and very useful for what we'll be doing. In short, this framework helps us to build a web application that functions as a website, so you may see me refer to this as a "web app".
@@ -54,7 +54,7 @@ Let's jump right into it! First, there are a few prerequisites. To follow along 
 
 Once the above is complete, open Docker Desktop and make sure that it is running before you proceed. This will allow us to create our development container, and the app provides a nice way to manage of all of your containers.
 
-> ![NOTE]
+> ⚠️**NOTE**⚠️
 > You will need Docker running any time you open your development project!
 
 ### Launch VSCode
@@ -65,7 +65,7 @@ First, we are going to need to install some extensions.
 Download the `Dev Containers` and `Docker` extensions.
 + ![required extensions](public/static/images/readme/components_reqd.png)
 
-> ![NOTE]
+> ⚠️**NOTE**⚠️
 > These extension installations are *local*, so they are available to all projects that you open in the future. When we create a container, we can also install extensions inside of the container so that they remain tied only to the project itself. There are many other useful extensions available, and it's worth being cognizant of what should be installed locally versus in your project's container.
 
 You can optionally download these at this time. Keep in mind these are *local* extensions installations.
@@ -88,7 +88,7 @@ We want to create a new repo from this template. Do so by clicking `Use this tem
 
   ![create repo github](public/static/images/readme/createrepo.png)
 
-> ![NOTE]
+> ⚠️**NOTE**⚠️
 >  You can also choose whether you want this repo to be Public or Private. I would advise to set yours to private, but it's up to you. We will not be using Github Pages (which requires a Public repo), rather we will be using Vercel to deploy, which can still deploy the web application from a Private repo (we have to link our Vercel account to Github either way).
 
 Once you are ready, click `Create repository`, and wait until you see that your new repo has been created.
@@ -105,7 +105,7 @@ First, we need to be sure we are signed into our Github account on VSCode. In VS
 
 It should bring up your browser to sign in, and just follow the prompts until you are signed into Github on VSCode.
 
-> ![NOTE]
+> ⚠️**NOTE**⚠️
 > Here's an example of "I know there is a better way to do this but this works" for me, so if you know an easier way to sign in let me know! Truthfully, for what we are doing you will inevitably get a prompt to sign into Github.
 
 ### Clone Repo into a VSCode project
@@ -121,5 +121,5 @@ You're off to the races!
 
 This part may take a while.  If you are curious what is chugging in the background, you should get prompted to open the terminal to monitor the installation.
 
-> ![WARNING]
+> 🚨**WARNING**🚨
 > I have encountered some issues in VSCode with user credential authentication when running the cloning operation. Please follow the instructions at [this Stack Overflow post](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed) to generate a Github token that is used in place of your password instead of your normal Github login password. Be sure to store it in whatever password manager your operating system uses in order to not have to re-enter it whenever you are running any actions that use the Github API (which you will be doing a lot).
