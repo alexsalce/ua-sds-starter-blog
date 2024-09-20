@@ -122,4 +122,18 @@ You're off to the races!
 This part may take a while.  If you are curious what is chugging in the background, you should get prompted to open the terminal to monitor the installation.
 
 > 🚨**WARNING**🚨
-> I have encountered some issues in VSCode with user credential authentication when running the cloning operation. Please follow the instructions at [this Stack Overflow post](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed) to generate a Github token that is used in place of your password instead of your normal Github login password. Be sure to store it in whatever password manager your operating system uses in order to not have to re-enter it whenever you are running any actions that use the Github API (which you will be doing a lot).
+> I have encountered some issues in VSCode with user credential authentication when running the cloning operation. Please follow the instructions at [this Stack Overflow post](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed) to generate a Github token that is used in place of your password instead of your normal Github login password. Be sure to store it in whatever password manager your operating system uses in order to not have to re-enter it whenever you are running any actions that use the Github API (which you will be doing quite a bit).
+
+### Verifying everything is working
+
+Once your container volume is fully built, the web app is configured to automatically run `yarn dev` to start running your `▲ Next.js` app in your container. You'll see something like this in your terminal.
+
+  ![yarn dev](public/static/images/readme/yarndev.png)
+
+This will by default attempt to run the app locally using port `3000`, and you can run the site in development mode by navigating to `http://localhost:3000` in a browser on your machine locally.
+
+If you navigate to `http://localhost:3000` and are able to see this:
+
+  ![yarn dev](public/static/images/readme/devsite.png)
+
+Then congratulations! You are ready to start developing your site!
