@@ -76,7 +76,7 @@ Once we clone our project into a container, we'll check back in on the extension
 
 ### Create new repo
 
-Let's navigate to the template repo. Theoretically you are already here but just in case...
+Let's navigate to the template repo. Theoretically you are already here but to follow along you'll probably want to open this link in a new window or tab...
 
 #### [Template Repo](https://github.com/alexsalce/ua-sds-starter-blog)
 
@@ -84,7 +84,7 @@ We want to create a new repo from this template. Do so by clicking `Use this tem
 
  ![create repo from template](public/static/images/readme/createrepofromtemplate.png)
 
- Next, you will choose a name for your repo and add a description if you'd like.
+ Next, you will choose a name for your repo and add a description if you'd like. By the way, your repo name will not have any impact on your domain name, that's separate.
 
   ![create repo github](public/static/images/readme/createrepo.png)
 
@@ -137,3 +137,19 @@ If you navigate to `http://localhost:3000` and are able to see this:
   ![yarn dev](public/static/images/readme/devsite.png)
 
 Then congratulations! You are ready to start developing your site!
+
+# Developing your site
+
+We are going to switch over to a blog post now.  Scroll down on the landing page to the `Latest` section and find the post entitled `UA SDS Blog Development & Maintenance`.
+
+ ![yarn dev](public/static/images/readme/blogdevmaintenance.png)
+
+If you are having issues check these steps. To make sure your `dev` server is running, and use your favorite browser to navigate to the `localhost` port that the server is running on. You should be able to see the `http` port link under your `yarn dev` command output, it looks like this:
+
+![localhost](public/static/images/readme/localhost1.png)
+
+If for some reason you can't find it, check the `PORTS` tab, and if it's running you should see it here, and you can right-click>`Open in Browser`
+
+![localhost](public/static/images/readme/localhost2.png)
+
+If you don't see a port running here, go back to your `TERMINAL` tabl and run the `yarn dev` command, and it should start.
