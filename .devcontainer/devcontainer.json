@@ -15,7 +15,12 @@
       "settings": {
         "editor.formatOnSave": true
       },
-      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "unifiedjs.vscode-mdx",
+        "DavidAnson.vscode-markdownlint"
+      ]
     }
   },
   "portsAttributes": {
