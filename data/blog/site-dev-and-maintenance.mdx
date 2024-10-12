@@ -129,11 +129,19 @@ Once we create a variable for our chosen font, the default font for the site can
 
 #### Blog Posts
 
-All of your blog posts 
+All of the `mdx` files in your `data/blog` folder will render to your site automatically. Any posts that you don't want on your site should be removed or moved to the `data/archive/blog` folder.
 
-Check out the example for how to format a blog post header here:
+<div className="-mx-2 flex flex-wrap justify-center overflow-hidden xl:-mx-2">
+![blogs](/static/images/tutorial/blogpages.png)
+</div>
+
+To make a new post, create a new `mdx` file in `data/blog`. You will need to add the header fields in order for everything to render. Use the other posts in the folder as reference, or check out the example for how to format a blog post header here:
 
 [@timrlx Post Formatting](https://github.com/timlrx/tailwind-nextjs-starter-blog?tab=readme-ov-file#post)
+
+Blog posts are markdown, and very similar to other kinds of markdown that you have seen. You can even use $\LaTeX$ to render equations.  I recommend opening the `data/blog/deriving-ols-estimator.mdx` post to see examples of how the $\LaTeX$ syntax works in posts.
+
+Additionally, the Next.js framework allows us to incorporate components in your blog posts by passing component objects to be available in blogs via the `components/MDXComponents.tsx`.  [See this part of the post for more on this](#mdxcomponents)
 
 #### Authors
 
@@ -146,10 +154,14 @@ You can customize your CV by modifying the `data/resume/default.mdx` file, using
 
 ## More Advanced Stuff
 
-### Layouts, Components, and Pages
-
 > [!WARNING]
 > This is where it gets a little heavy
+
+### MDXComponents
+
+
+### Layouts, Components, and Pages
+
 
 If you take a look at the blog template from which this was originally created...
 
