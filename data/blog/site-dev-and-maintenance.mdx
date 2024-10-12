@@ -141,16 +141,18 @@ To make a new post, create a new `mdx` file in `data/blog`. You will need to add
 
 Blog posts are markdown, and very similar to other kinds of markdown that you have seen. You can even use $\LaTeX$ to render equations.  I recommend opening the `data/blog/deriving-ols-estimator.mdx` post to see examples of how the $\LaTeX$ syntax works in posts.
 
-Additionally, the Next.js framework allows us to incorporate components in your blog posts by passing component objects to be available in blogs via the `components/MDXComponents.tsx`.  [See this part of the post for more on this](#mdxcomponents)
+Additionally, the Next.js framework allows us to incorporate components in your blog posts by passing component objects to be available in blogs via the `components/MDXComponents.tsx`. There are a wealth of great components out there that can make your blogs more animated, reactive, and interactive.  [See this part of the post for more on this](#mdxcomponents).
 
 #### Authors
 
-
+Be sure to update the `data/authors/default.mdx` page with all of your information.  This will update your `About` page, so make sure to hit all of the high-level points and contact information about you ([you can also have a look at mine for ideas](https://www.alexsalce.com/about)).
 
 #### CV
 
-You can customize your CV by modifying the `data/resume/default.mdx` file, using the template as guidance for formatting (it's just pretty simple markdown syntax).
+You can customize your CV by modifying the `data/resume/default.mdx` file, using the template as guidance for formatting (it's just pretty simple markdown syntax). Keep in mind that the header levels correspond to indents in a table-of-contents style sidebar on the CV page.
 
+### [Deploying Git Repositories with Vercel](https://vercel.com/docs/deployments/git)
+Time to start deploying!
 
 ## More Advanced Stuff
 
@@ -159,6 +161,69 @@ You can customize your CV by modifying the `data/resume/default.mdx` file, using
 
 ### MDXComponents
 
+Here is the tutorial that comes from the original blog template by [@timrlx](https://github.com/timlrx).
+
+#### How can I add a custom MDX component?
+
+Here's an example on how to create a donut chart from Chart.js (assuming you already have the dependencies installed) and use it in MDX posts. First, create a new `DonutChart.tsx` component in `components`:
+
+```tsx
+'use client'
+
+import { Doughnut } from 'react-chartjs-2'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+
+ChartJS.register(ArcElement, Tooltip, Legend)
+
+const DonutChart = ({ data }) => {
+  return <Doughnut data={data} />
+}
+
+export default Doughnut
+```
+
+Since the underlying `Doughnut` component uses React hooks, we add the `'use client'` directive to specify that it is a client side component. Also, there is an existing issue which prevents named components from being used, so we need to export the component as the default export.
+
+Next, add the component to `MDXComponents.tsx`:
+
+```diff
+...
++ import DonutChart from './DonutChart'
+
+export const components: MDXComponents = {
+  Image,
+  TOCInline,
+  a: CustomLink,
+  pre: Pre,
++  DonutChart,
+  BlogNewsletterForm,
+}
+```
+
+You can now use the component in `.mdx` files:
+
+```mdx
+## Example Donut Chart
+
+export const data = {
+  labels: ['Red', 'Blue', 'Yellow'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+      ],
+      borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+      borderWidth: 1,
+    },
+  ],
+}
+
+<DonutChart data={data} />
+```
 
 ### Layouts, Components, and Pages
 
@@ -193,9 +258,23 @@ When we want to make a **new** page for our site (maybe something different than
 
 #### Resume Example
 
-The `app/resume` layout was a custom layout that I added to this site (credit to [Trillium's Blog](https://github.com/trillium/trilliumsmith.com) for the code), and we can run through how it was created.  First, we 
+The `app/resume` layout was a custom layout that I added to this site (credit to [Trillium's Blog](https://github.com/trillium/trilliumsmith.com) for the code), and we can run through how it was created.  First, we will create a new directory in our `app` folder. Here, we use `app/resume`. Inside this folder we will make a `page.tsx`. This page is what ultimately get rendered when we navigate to `{blogurl}/resume`.
 
-Inside of `contentlayer.config.ts`, we need to 
+In this case, the `page.tsx` that I copied from Trillium's Blog uses some dependencies that will also need to be accounted for.
+
+- We need a Resume Layout, which is a layout that can be found at `layouts/ResumeLayout.tsx`. This was something that I added manually, and you may need to create your own layout if you are making a new page.
+- The `ResumeLayout` needs a custom component ```import { ToC } from '@/components/ToC'```. This was also something I added manually, and you may need to import components into your layouts.
+
+> [!NOTE]
+> Always check the imports of any new components, layouts, or any other pages that you decide to add if you are importing from externally (maybe you found something cool online).
+> If you don't recognize an import, or you are getting errors when you render, you will need to install the dependency into your environment. You can stop the dev server and install from your terminal using `yarn add {package}` or `npm install {package}` (documentation online will usually give you something you can copy/paste). Most packages can be found on [https://www.npmjs.com/](https://www.npmjs.com/). 
+> Also note, when you install new packages to your project, the `package.json` updates automatically, so that dependency will now be automatically attached to your environment for this project.
+
+- Lastly, we need to create a new directory, `data/resume` and add `default.mdx`. This will be the content that we fill out for the resume layout object that gets rendered on the app page.
+
+Once these files are added in their appropriate folders, we need to pass the structure into `contentlayer` so that it will be dynamically rendered.
+
+Inside of `contentlayer.config.ts` in the root, we need to add a new `export` so that `contentlayer` will export our resume to be rendered by the app. Notice the `filePathPattern` property where we define the path to the `mdx` content that will be rendered and define the fields that can be defined in the header and passed into the layout.
 
 ```ts
 //need to add Resume contentlayer configuration, any new react app page needs added here, use others for format (sds_custom)
@@ -217,6 +296,22 @@ export const Resume = defineDocumentType(() => ({
 }))
 ```
 
+Almost there. Our last step is to add the `Resume` export we just created to the `contentlayer` `documentTypes` so that `contentlayer` knows to generate it.
+
+```ts
+// documentTypes: Resume must be manually added for document type export for react app page to build (sds_custom)
+export default makeSource({
+  contentDirPath: 'data',
+  documentTypes: [Blog, Authors, Resume],
+```
+
+And we're done!  Now, when we navigate to `{blogurl}/resume`, we will render our new page!
+
+Also, you might notice on the nav bar it's called `CV`, and on the layout document it says "Cirriculum Vitae". You can of course modify this, but I chose CV since that matches the communications requirement. An exercise you may try: how do I produce this Resume page at `{blogurl}/cv`?
+
+
+>[!NOTE]
+> I will be adding to this page periodically, and I am happy to add any material by request!
 
 
 
