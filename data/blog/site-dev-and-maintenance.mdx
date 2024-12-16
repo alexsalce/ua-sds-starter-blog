@@ -156,6 +156,10 @@ Be sure to update the `data/authors/default.mdx` page with all of your informati
 You can customize your CV by modifying the `data/resume/default.mdx` file, using the template as guidance for formatting (it's just pretty simple markdown syntax). Keep in mind that the header levels correspond to indents in a table-of-contents style sidebar on the CV page.
 
 ### [Deploying Git Repositories with Vercel](https://vercel.com/docs/deployments/git)
+
+> [!IMPORTANT]
+> **UPDATE AS OF DECEMBER 2024**: Vercel now uses Node.js version `22.X` as its default for new projects when running `yarn build`, meaning that **the first time you deploy it will fail! This is fine, let it fail!**  Once the build has failed, navigate to the `Project` page on Vercel and click on the `Settings` tab (above your project's name). Scroll down to "**Node.js Version**" and from the pulldown menu select `20.X` (the default will have `22.X`). Click the **Save** button below, then go back to the `Project` tab. Click `Redeploy`, don't modify any options on the pop up and redeploy the page. This time it should build successfully. See this link if you get stuck:  [https://vercel.com/docs/functions/runtimes/node-js/node-js-versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions)
+
 Time to start deploying!
 
 ## More Advanced Stuff
