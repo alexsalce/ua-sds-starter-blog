@@ -53,11 +53,15 @@
   },
   "resolutions": {
     "glob": "10.5.0",
-    "sucrase": "3.35.1"
+    "sucrase": "3.35.1",
+    "esbuild": "0.27.1",
+    "form-data": "2.5.4"
   },
   "overrides": {
     "glob": "10.5.0",
-    "sucrase": "3.35.1"
+    "sucrase": "3.35.1",
+    "esbuild": "0.27.1",
+    "form-data": "2.5.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
