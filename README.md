@@ -1,3 +1,6 @@
+> 🚨**ALL UA SDS Students attempting to use this template**🚨
+> Unfortunately I am no longer able to support this blog template due to deprecation of dependencies, etc. However, I am available to help via email if you need advice with getting a personal site set up, please see [alexsalce.com](https://www.alexsalce.com/).  Apologies for the inconvenience and thank you for visiting!
+
 ![tailwind-nextjs-banner](/public/static/images/logo.png)
 
 # A starter portfolo-blog website for UA SDS GIDP Students
